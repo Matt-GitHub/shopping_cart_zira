@@ -4,9 +4,7 @@ import { useSearchContext } from "../context/SearchContent";
 const Navigation = () => {
   const { search, setSearch } = useSearchContext();
 
-  useEffect(() => {
-    console.log("search", search, search.length);
-  }, [search]);
+  useEffect(() => {}, [search]);
   return (
     <div>
       <div className="navigation">

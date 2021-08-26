@@ -60,7 +60,6 @@ export const cartState = createSlice({
       let accountId = 1;
       let totalPrice = 0;
       let itemOverview: { id: number; is_favorite: boolean }[] = [];
-      console.log("action payload", action.payload);
       action.payload.forEach(data => {
         totalPrice += data.quantity * data.price;
         itemOverview.push({ id: data.id, is_favorite: data.is_favorite });

@@ -4,7 +4,7 @@ import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 import { useCart } from "../../hooks/useCart";
 import CartList from "./CartList";
-import EmptyCart from '../../components/EmptyCart'
+import EmptyCart from "../../components/EmptyCart";
 
 const CartPage = () => {
   const [
@@ -23,11 +23,11 @@ const CartPage = () => {
         <Loading />
       ) : cartStatus === "failed" ? (
         <Error />
-      ) : cart.length < 1 ? <EmptyCart /> : (
+      ) : cart.length < 1 ? (
+        <EmptyCart />
+      ) : (
         cart.map((data: cartProducts) => {
-          console.log("no match");
           return <CartList key={data.id} cartData={data} />;
-          // console.log("data from cart", data);
         })
       )}
       <button onClick={() => continueToCheckout(cart)}>Checkout</button>

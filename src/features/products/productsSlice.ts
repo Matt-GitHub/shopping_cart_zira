@@ -69,7 +69,6 @@ export const productSlice = createSlice({
     builder.addCase(getProducts.rejected, (state, action) => {
       state.status = "failed";
       state.errorMessage = "Failed";
-      console.log("state", state, "action", action);
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
       state.status = "idle";
