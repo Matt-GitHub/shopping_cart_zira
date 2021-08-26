@@ -1,9 +1,9 @@
 Shopping Cart Demo 
 
 ### Tech Stack
-# React
-# TypeScript
-# Redux ToolKit
+* React
+* TypeScript
+* Redux ToolKit
 
 ### `yarn start` to run project
 
