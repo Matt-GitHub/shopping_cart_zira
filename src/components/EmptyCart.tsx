@@ -4,7 +4,6 @@ const EmptyCart = () => {
   return (
     <div>
       <span>Your Cart is Empty</span>
-      <GoBackToShop />
     </div>
   );
 };

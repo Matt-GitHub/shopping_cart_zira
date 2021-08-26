@@ -6,9 +6,11 @@ import {
   addItemQuantity,
   reduceItemQuantity,
   checkout,
+  addToFavorites,
   selectCart
 } from "../features/cart/cartSlice";
 import { cartProducts } from "../types/cartProducts";
+import { Products } from "../types/products";
 export const useCart = () => {
   const { cartStatus, cart, cartCheckout, cartError } = useAppSelector(
     selectCart
@@ -27,7 +29,9 @@ export const useCart = () => {
       subtractCartQuantity: (payload: cartProducts) =>
         cartDispatch(reduceItemQuantity(payload)),
       continueToCheckout: (payload: cartProducts[]) =>
-        cartDispatch(checkout(payload))
+        cartDispatch(checkout(payload)),
+      updateCheckoutFavorites: (payload: Products) =>
+        cartDispatch(addToFavorites(payload))
     }),
     [cartDispatch]
   );

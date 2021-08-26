@@ -27,9 +27,9 @@ const ProductsPage = () => {
         products.map((data: Products) => {
           if (data.title.toLowerCase().includes(search.toLowerCase())) {
             return <ProductCard key={data.id} product={data} />;
-          }
-        })
-      ) : (
+          } 
+        }) 
+      ) :  (
         products.map((data: Products) => {
           return <ProductCard key={data.id} product={data} />;
         })

@@ -19,7 +19,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     cart,
     cartError,
     cartCheckout,
-    { addProductToCart },
+    { addProductToCart, updateCheckoutFavorites },
     cartDispatch
   ] = useCart();
   useEffect(() => {}, [dispatch]);

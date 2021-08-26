@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { cartProducts } from "../../types/cartProducts";
 import { RootState } from "../../app/store";
+import { Products } from "../../types/products";
 
 interface Checkout {
   accountId?: number;
@@ -71,6 +72,12 @@ export const cartState = createSlice({
       };
 
       state.cartCheckout = checkoutState;
+    },
+    addToFavorites: (state, action: PayloadAction<Products>) => {
+      let productState = state.cart.map(item =>
+        item.id === action.payload.id ? { ...item, is_favorite: true } : item
+      );
+      state.cart = productState;
     }
   }
 });
@@ -80,7 +87,21 @@ export const {
   removeFromCart,
   addItemQuantity,
   reduceItemQuantity,
-  checkout
+  checkout,
+  addToFavorites
 } = cartState.actions;
 export const selectCart = (state: RootState) => state.cart;
 export default cartState.reducer;
+
+// ,
+//   addToFavorites: (state, action) => {
+//     let productState = state.cart.map(item =>
+//       item.id === action.payload.id ? { ...item, is_favorite: true } : item
+//     );
+//     state.cart = productState;
+//   },
+// removeFromFavorites: (state, action: PayloadAction<Products>) => {
+//   let productState = state.cart.map(item =>
+//     item.id === action.payload.id ? { ...item, is_favorite: false } : item
+//     state.cart = productState;
+//     );
